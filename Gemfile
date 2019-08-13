@@ -20,6 +20,8 @@ gem 'rack-cors'
 gem 'bcrypt'
 gem 'fast_jsonapi'
 
+gem 'rails_admin', '~> 2.0.0.rc'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
