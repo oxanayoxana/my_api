@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Api::UsersController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
-  before_action :authenticate_user,  only: [:index, :update]
-  before_action :authorize,          only: [:update, :destroy]
+  before_action :authenticate_user,  only: %i[index update]
+  before_action :authorize,          only: %i[update destroy]
 
   def index
     render  status: :ok, json: 'Logged-in.'

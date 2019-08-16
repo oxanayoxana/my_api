@@ -1,4 +1,15 @@
+# frozen_string_literal: true
+
 RailsAdmin.config do |config|
+  config.parent_controller = '::ApplicationController'
+
+  config.authorize_with do |_controller|
+    redirect_to main_app.root_path if current_user.role != 'admin'
+  end
+
+  # config.authorize_with do
+  #   redirect_to main_app.root_path unless current_user.is_admin?
+  # end
 
   ### Popular gems integration
 
@@ -6,7 +17,7 @@ RailsAdmin.config do |config|
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
